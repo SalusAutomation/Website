@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Vito-Light';
+    src: url('Vito-Light.eot');
+    src: url('Vito-Light.eot?#iefix') format('embedded-opentype'),
+	 url('Vito-Light.woff2') format('woff2'),
+         url('Vito-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

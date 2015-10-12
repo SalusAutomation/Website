@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?yourdomain\.com/ [NC]
+RewriteRule \.(woff2|woff|eot|svg|ttf|otf)$ - [F,NC,L]
+Options -Indexes

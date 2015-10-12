@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Vito-Bold';
+    src: url('Vito-Bold.eot');
+    src: url('Vito-Bold.eot?#iefix') format('embedded-opentype'),
+	 url('Vito-Bold.woff2') format('woff2'),
+         url('Vito-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
