@@ -1,0 +1,607 @@
+//  The main Sass file for Salus
+
+
+// 
+//  Imports
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+@import 'reset-css'
+@import 'config-style'
+@import 'library-mixins'
+
+
+
+// 
+//  BASE
+//  Setup
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+html
+  height: 100%
+  font-size: 15px
+  @media #{$break-mobile-landscape}
+    font-size: 15px
+  @media #{$break-tablet-portrait}
+    font-size: 16px
+  @media #{$break-desktop-3}
+    font-size: 17px
+
+body
+  height: 100%
+  @include setFont("regular")
+  color: $black
+  background-color: $white
+  -webkit-text-size-adjust: 100%
+
+a
+  text-decoration: none
+  color: $teal-bright
+  &:visited
+    color: $teal-rich
+  &:hover, &:focus
+    color: $purple
+
+// Only underline links that are in the main text parts
+.section-page-content
+  a
+    border-bottom: 1px solid $lightest-gray
+    &:hover, &:focus
+      border-bottom-color: $lighter-gray
+
+// TODO
+// .wf-loading body
+//   visibility: hidden
+
+
+// 
+//  BASE
+//  Layout
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.site
+  display: block
+  @media #{$break-desktop-safe}
+    min-height: 100%
+    margin-bottom: -190px
+    &:after
+      content: ""
+      display: block
+      height: 190px
+
+.frame
+  @include setBorderSizing()
+  display: block
+  width: 84.8%
+  margin-right: auto
+  margin-left: auto
+  position: relative
+
+
+
+//  
+//  SECTION
+//  Header
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.header
+  padding: 0
+  background-color: $white
+  @media #{$break-desktop-safe}
+    height: 162px
+
+.grid-branding
+  padding-bottom: 0
+  @media #{$break-desktop-safe}
+    width: 280px
+
+.branding
+  display: block
+  padding: 30px 0
+
+.logo-link
+  display: inline-block
+  width: auto
+  border: 0
+
+.logo
+  display: block
+  width: 280px // 376px
+  height: 120px // 150px
+  background: url("../images/salus-logo-full.png") 0 0 no-repeat transparent
+  background-size: 280px auto //376px 150px
+
+
+// Navigation —·—·—·—
+
+// Has .grid-half
+.main-nav-container
+  @media #{$break-desktop-safe}
+    width: 100%
+    clear: left
+  @media #{$break-desktop-1}
+    // Reset .grid-half and clear
+    width: percentage( ((1 - ($gut * 3)) / 4) * 2 + ($gut * 1))
+    clear: none
+
+.main-nav
+  display: block
+  @media #{$break-desktop-safe}
+    padding-top: 30px
+    float: left
+  @media #{$break-desktop-1}
+    margin-left: 40px
+  @media #{$break-desktop-2}
+    margin-left: 60px
+  @media #{$break-desktop-3}
+    margin-left: 100px
+
+.menu
+  li
+    display: block
+    &:first-child
+      a
+        padding-top: 0
+        padding-left: 0
+    &:last-child
+      a
+        padding-right: 0
+        background-image: none
+    @media #{$break-desktop-safe}
+      display: inline
+      float: left
+    @media #{$break-desktop-1}
+      &:first-child
+        a
+          padding-top: 50px
+  a
+    display: block
+    width: auto
+    padding: 15px 0 0 0
+    @include setFont("bold", 15, 20)
+    @include setUppercase()
+    @include setLinkColor($black, $teal-bright)
+    border-bottom: 0
+    @media #{$break-desktop-safe}
+      padding: 0 60px 30px 0
+      float: left
+    @media #{$break-desktop-1}
+      padding: 50px 60px 50px 0
+      float: left
+      background: url("../images/nav-slash.png") right top no-repeat
+      background-size: 67px 115px
+    @media #{$break-desktop-2}
+      padding: 50px 85px 50px 25px
+
+
+// Quick Connect —·—·—·—
+
+.quick-connect-container
+  width: 100%
+  @media #{$break-desktop-safe}
+    width: 440px
+    position: absolute
+    right: -7.5%
+  @media #{$break-desktop-2}
+    position: relative
+    right: auto
+
+.quick-connect-contact
+  padding-bottom: 10px
+  .scope-text
+    display: block
+    @include setFont("regular", 18, 24)
+    color: $black
+  @media #{$break-desktop-safe}
+    padding: 50px 30px 30px 0
+    background: url("../images/nav-slash.png") right 10px top 30px no-repeat
+    background-size: 67px 115px
+
+.quick-connect-contact-label
+  display: block
+  padding: 5px 0 6px 0
+  @include setFont("bold", 13, 16)
+  @include setUppercase()
+  color: $purple
+
+.quick-connect-social-list
+  @media #{$break-desktop-safe}
+    position: absolute
+    right: 0
+    top: 82px
+
+.social-list-item
+  &:first-child
+    .social-icon
+      margin-left: 0
+  @media #{$break-desktop-safe}
+    &:first-child
+      .social-icon
+        margin-left: 10px
+
+.social-icon
+  display: block
+  width: 34px
+  height: 34px
+  margin-left: 10px
+  float: left
+  border-bottom: 0
+  @include setBorderRadius(6px)
+  &:hover, &:focus
+    background-color: $black
+
+.social-icon-twitter
+  background: url("../images/icn-social-twitter.png") center center no-repeat $twitter
+  background-size: 34px 34px
+  &:hover, &:focus
+    background-color: $black
+
+.social-icon-linkedin
+  background: url("../images/icn-social-linkedin.png") center center no-repeat $linkedin
+  background-size: 34px 34px
+  &:hover, &:focus
+    background-color: $black
+
+
+
+//  
+//  PAGE SECTIONS
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.section-page
+  padding: 60px 0 80px 0
+  @media #{$break-desktop-safe}
+    padding: 120px 0 210px 0
+
+.section-about
+  background-color: $white
+  
+.section-about-frame
+  @media #{$break-desktop-safe}
+    background: url("../images/illustration-chemistry.png") right 0 top 90px no-repeat $white
+    background-size: 261px 187px
+  @media #{$break-desktop-2}
+    background-position: right 292px top 90px
+
+.section-applications
+  background-color: $teal-rich
+
+.section-consulting
+  background-color: $white
+
+.section-products
+  background-color: $black
+
+.section-contact
+  background-color: $white
+
+.section-header
+  padding: 0
+  // @media #{$break-desktop-safe}
+  //   padding: 0 0 40px 0
+
+.section-title
+  display: block
+  padding: 0
+  @include setFont("bold", 48, 56)
+  @media #{$break-desktop-safe}
+    @include setFont("bold", 60, 68)
+  @media #{$break-desktop-2}
+    padding: 0 0 0 140px
+  @media #{$break-desktop-3}
+    padding: 0 0 0 219px
+
+.section-about-title
+  color: $black
+
+.section-applications-title
+  color: $white
+
+.section-consulting-title
+  color: $purple
+
+.section-products-title
+  color: $white
+
+.section-contact-title
+  color: $teal-bright
+
+.section-page-content
+  max-width: 748px
+  padding: 20px 0 0 0
+  p
+    @include setFont("serif", 21, 28)
+    color: $black
+    &:first-child
+      @include setFont("serif-italic", 28, 36)
+      color: $gray
+      + p
+        padding-top: 24px
+    + h3
+      padding-top: 34px
+    + p
+      padding-top: 12px
+  strong
+    @include setFont("serif-bold")
+  em
+    @include setFont("serif-italic")
+  h3
+    display: block
+    padding-bottom: 10px
+    @include setFont("bold", 18, 21)
+    @include setUppercase()
+    color: $teal-bright
+  @media #{$break-desktop-safe}
+    p
+      &:first-child
+        + p
+          padding-top: 34px
+  @media #{$break-desktop-2}
+    padding: 0 0 0 140px
+  @media #{$break-desktop-3}
+    padding: 0 0 0 219px
+
+.section-image
+  display: block
+  width: 100%
+  max-width: 400px
+  margin: 30px 0 0 0
+  @media #{$break-desktop-safe}
+    position: absolute
+    right: 0
+    top: 0
+  @media #{$break-desktop-2}
+    max-width: 600px
+
+.section-image-img
+  display: block
+  width: 100%
+  height: auto
+  border: 0
+
+.section-about-content
+  p
+    &:first-child
+      color: $purple
+
+.section-applications-content
+  p
+    color: #defffe
+    &:first-child
+      color: $white
+  h3
+    color: $white
+
+.section-applications-features
+  display: block
+  width: 100%
+  margin-top: 30px
+  padding-top: 142px
+  background: url("../images/illustration-application-features.png") 0 0 no-repeat
+  background-size: 183px 110px
+  ul
+    list-style: none
+  li
+    display: inline-block
+    margin-bottom: 2px
+    padding: 13px 25px 13px 50px
+    @include setFont("regular", 25, 25)
+    color: $teal-bright
+    background: url("../images/icn-check-green.png") 12px 13px no-repeat $white
+    background-size: 26px auto
+    strong
+      @include setFont("bold")
+  @media #{$break-desktop-safe}
+    width: 446px
+    margin-top: 0
+    padding-top: 142px
+    position: absolute
+    right: 0
+    top: 40px
+  @media #{$break-desktop-2}
+    right: 254px
+
+
+.section-contact-us-details
+  display: block
+  width: 100%
+  margin-top: 30px
+  ul
+    list-style: none
+  li
+    display: inline-block
+    padding: 13px 25px 13px 30px
+    @include setFont("regular", 21, 21)
+    color: $black
+    &:nth-child(1)
+      background: url("../images/icn-contact-email.png") 0 10px no-repeat $white
+      background-size: 22px 22px
+    &:nth-child(2)
+      background: url("../images/icn-contact-phone.png") 0 10px no-repeat $white
+      background-size: 22px 22px
+    &:nth-child(3)
+      padding-bottom: 8px
+      background: url("../images/icn-contact-location.png") 0 10px no-repeat $white
+      background-size: 22px 22px
+    &:nth-child(4)
+      padding-top: 0
+    strong
+      @include setFont("bold")
+  @media #{$break-desktop-safe}
+    width: 446px
+    margin-top: 0
+    position: absolute
+    right: 0
+    top: 40px
+    li
+      padding-left: 40px
+      @include setFont("regular", 25, 25)
+      &:nth-child(1)
+        background-position: 0 11px
+        background-size: 26px 26px
+      &:nth-child(2)
+        background-position: 0 11px
+        background-size: 26px 26px
+      &:nth-child(3)
+        background-position: 0 11px
+        background-size: 26px 26px
+  @media #{$break-desktop-2}
+    right: 254px
+
+
+
+
+//  
+//  SECTION
+//  Main Lead Image
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.main-lead
+  padding: 30px 0 40px 0
+  background-color: $teal-rich
+  h1
+    padding: 10px 0
+    @include setFont("light", 40, 46)
+    text-shadow: 0 1px 2px transparentize($black, 0.65)
+    color: $white
+  @media #{$break-desktop-safe}
+    min-height: 800px
+    padding: 219px 0 0 0
+    h1
+      padding: 0
+      @include setFont("light", 70, 76)
+      &:first-line
+        @include setFont("bold")
+  @media #{$break-desktop-2}
+    h1
+      padding: 0 0 0 140px
+
+
+
+//  
+//  SECTION
+//  App Custom Post Type
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.section-products-app-listings
+  padding-top: 30px
+  @media #{$break-desktop-safe}
+    padding-top: 80px
+
+.button
+  @include setBorderSizing()
+  display: inline-block
+  height: 74px
+  padding: 15px 30px
+  @include setFont("bold", 28, 28)
+  text-align: center
+  text-shadow: 0 1px 1px transparentize($true-black, 0.88)
+  @include setLinkColor($white, $white)
+  border: 1px solid $true-black
+  @include setBorderRadius(10px)
+  @include setLinearGradient(bottom, #ffa653, #f4a75f)
+  @include setBoxShadow(0, 1px, 2px, 0, transparentize($white, 0.5), $inset: true)
+  &:hover, &:focus
+    background-color: #f4a75f
+    @include setLinearGradient($none: true)
+  .scope-text
+    display: block
+    @include setFont("regular", 11, 16)
+    @include setUppercase()
+
+.app-block
+  text-align: center
+
+.app-block-title-link
+  @include setLinkColor($white, $white)
+  border-bottom: 0
+
+.app-block-title
+  display: block
+  padding: 30px 0 6px 0
+  @include setFont("bold", 21, 31)
+  @include setUppercase()
+  color: $white
+
+.app-block-desc
+  display: block
+  padding-bottom: 30px
+  @include setFont("serif", 21, 26)
+  color: $lighter-gray
+
+// .app-block-app-link
+
+// This is for the iPhone images
+.mobile-p
+  display: block
+  padding: 25.6078% 0
+  position: relative
+  z-index: 1
+  background: url("../images/product-iphone6-placeholder.gif") center top no-repeat transparent
+  background-size: 100% auto
+  &:after
+    content: ""
+    display: block
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    background: url("../images/product-iphone6-blank-transparent.png") center top no-repeat transparent
+    background-size: 100% auto
+    z-index: 1
+  img
+    display: block
+    width: 86.0615% !important
+    height: auto !important
+    margin: 0 auto
+    position: relative
+    z-index: 0
+  
+
+
+//  
+//  SECTION: Footer
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.site-footer
+  @include setBorderSizing()
+  padding: 30px 0 40px 0
+  background-color: $lighter-gray
+  @include setBoxShadow(0, 2px, 8px, 0, transparentize($black, 0.8), $inset: true)
+  @media #{$break-desktop-safe}
+    height: 190px
+    padding: 40px 0 0 0
+  @media #{$break-desktop-2}
+    padding-left: 140px
+  @media #{$break-desktop-3}
+    padding-left: 219px
+
+.copyright
+  @include setFont("regular", 18, 26)
+  color: $light-gray
+
+
+
+//  
+//  Specific use classes
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.salus-teal
+  color: $salus-teal
+
+.bringhurst-enforcer
+  font-weight: normal
+
+.clear
+  &:after
+    content: ""
+    display: block
+    height: 0
+    overflow: hidden
+    clear: both
+
+.hide
+  display: none
+
+
+

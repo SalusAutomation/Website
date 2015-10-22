@@ -1,0 +1,124 @@
+@mixin setBorderRadius($top-left: false, $top-right: false, $bottom-right: false, $bottom-left: false)
+  @if $top-right == false
+    -webkit-border-radius: $top-left
+    -moz-border-radius: $top-left
+    -o-border-radius: $top-left
+    border-radius: $top-left
+  @else
+    -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left
+    -moz-border-radius: $top-left $top-right $bottom-right $bottom-left
+    -o-border-radius: $top-left $top-right $bottom-right $bottom-left
+    border-radius: $top-left $top-right $bottom-right $bottom-left
+  
+@mixin setBoxShadow($left: 0, $top: 0, $size: 0, $spread: 0, $color: #000, $inset: false, $none: false)
+  @if $none == true
+    webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+  @else
+    @if $inset == true
+      -webkit-box-shadow: inset $left $top $size $spread $color
+      -moz-box-shadow: inset $left $top $size $spread $color
+      box-shadow: inset $left $top $size $spread $color
+    @else
+      -webkit-box-shadow: $left $top $size $spread $color
+      -moz-box-shadow: $left $top $size $spread $color
+      box-shadow: $left $top $size $spread $color
+
+@mixin setLinearGradient($start: bottom, $from: #000, $to: #fff, $none: false)
+  @if $none == true
+    background-image: none
+    background-image: none
+    background-image: none
+    background-image: none
+  @else
+    background-image: -webkit-linear-gradient($start, $from, $to)
+    background-image: -moz-linear-gradient($start, $from, $to)
+    background-image: -o-linear-gradient($start, $from, $to)
+    background-image: linear-gradient($start, $from, $to)
+
+@mixin setAnimation($name, $duration, $iteration, $timing_function: ease)
+  -webkit-animation-name: $name
+  -webkit-animation-duration: $duration
+  -webkit-animation-iteration-count: $iteration
+  -webkit-animation-timing-function: $timing_function
+  -moz-animation-name: $name
+  -moz-animation-duration: $duration
+  -moz-animation-iteration-count: $iteration
+  -moz-animation-timing-function: $timing_function
+  -o-animation-name: $name
+  -o-animation-duration: $duration
+  -o-animation-iteration-count: $iteration
+  -o-animation-timing-function: $timing_function
+  animation-name: $name
+  animation-duration: $duration
+  animation-iteration-count: $iteration
+  animation-timing-function: $timing_function
+
+@mixin setUppercase($letter-spacing: 1px, $smallcaps: FALSE)
+  letter-spacing: $letter-spacing
+  text-transform: uppercase
+  @if $smallcaps == TRUE
+    font-size: 80%
+    line-height: 133%
+
+@mixin setFontFeature($settings: "ss01")
+  font-variant: $settings
+  -moz-font-feature-settings: $settings
+  -ms-font-feature-settings: $settings
+  -webkit-font-feature-settings: $settings
+  font-feature-settings: $settings
+
+@mixin setLigatures()
+  -moz-font-feature-settings: "liga=1, dlig=1" 
+  -moz-font-feature-settings: "liga", "dlig"
+  -ms-font-feature-settings: "liga", "dlig"
+  -o-font-feature-settings: "liga", "dlig"
+  -webkit-font-feature-settings: "liga", "dlig"
+  font-feature-settings: "liga", "dlig"
+
+// TODO:
+@mixin setTitlingFeature()
+  -moz-font-feature-settings: "liga=1, dlig=1" 
+  -moz-font-feature-settings: "liga", "dlig"
+  -ms-font-feature-settings: "liga", "dlig"
+  -o-font-feature-settings: "liga", "dlig"
+  -webkit-font-feature-settings: "liga", "dlig"
+  font-feature-settings: "liga", "dlig"
+
+@mixin setHyphens()
+  -webkit-hyphens: auto
+  -moz-hyphens: auto
+  -ms-hyphens: auto
+  hyphens: auto
+
+@mixin setBorderSizing()
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+@mixin setContentSizing()
+  -moz-box-sizing: content-box
+  -webkit-box-sizing: content-box
+  box-sizing: content-box
+
+@mixin setPlaceholderText($color: $lighter-gray, $font: "regular")
+  &::-webkit-input-placeholder
+    @include setFont($font)
+    color: $color
+  &:-moz-placeholder
+    @include setFont($font)
+    color: $color
+  &::-moz-placeholder
+    @include setFont($font)
+    color: $color
+  &:-ms-input-placeholder
+    @include setFont($font)
+    color: $color
+
+@mixin setLinkColor($defaultColor: $gray, $activeColor: $black)
+  color: $defaultColor
+  &:visited
+    color: $defaultColor
+  &:hover, &:focus
+    color: $activeColor

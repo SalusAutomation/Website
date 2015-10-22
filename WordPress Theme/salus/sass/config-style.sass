@@ -1,0 +1,251 @@
+//
+//  Colors
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+// Grays
+
+$true-black: #000
+$white: #fff
+$black: #221f1f
+$gray: #808184
+$light-gray: #b7b9b9
+$lighter-gray: #dbdddd
+$lightest-gray: #f0f0f0
+
+// Branding Colors
+
+$teal-bright: #00c7c0
+$teal-rich: #00aaaa
+$salus-teal: $teal-bright
+
+$purple: #c746c0
+$green: #46c778
+$orange: #f4a75f
+
+$facebook: #3b5998
+$linkedin: #006fa6
+$twitter: #1da1f2
+$instagram: #517f85
+
+
+//
+//  Media Queries
+//  —·—·—·—·—·—·—·—·—·—·—·—
+                                                         // 1 pixel TO —> 
+$break-mobile-landscape: "screen and (min-width: 480px)" // Mobile devices TO —>
+$break-tablet-portrait: "screen and (min-width: 768px)"  // Tablets & old desktops TO —>
+$break-desktop-safe: "screen and (min-width: 960px)"    // Small desktops and landscape tablets TO —>
+$break-desktop: "screen and (min-width: 1280px)"         // Regular desktops on the smaller side TO —>
+$break-desktop-1: "screen and (min-width: 1600px)"       // Modern desktops TO —>
+$break-desktop-2: "screen and (min-width: 1920px)"       // Wide screen desktops TO —>
+$break-desktop-3: "screen and (min-width: 2250px)"       // Big ol’ iMacs and such TO —> ∞!
+
+
+
+//
+//  Constants
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+$col: .09278
+$gut: .02061
+
+$em_base: 16
+
+
+
+//  
+//  Functions
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+@function setGrid($colNum, $gutNum: $colNum - 1)
+  @return percentage($col*$colNum + $gut*$gutNum)
+
+@function pem($target, $context: $em_base)
+  @return #{$target / $context}em
+
+@function prem($target, $context: $em_base)
+  @return #{$target / $context}rem
+
+
+
+//  
+//  Layout Grid
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+.grid
+  display: block
+  padding-bottom: 24px
+  position: relative
+  @media #{$break-desktop-safe}
+    margin-right: percentage($gut)
+    padding-bottom: 0
+    float: left
+
+.grid-1
+  @media #{$break-desktop-safe}
+    width: setGrid(1)
+
+.grid-2
+  @media #{$break-desktop-safe}
+    width: setGrid(2)
+
+.grid-3
+  @media #{$break-desktop-safe}
+    width: setGrid(3)
+
+.grid-4
+  @media #{$break-desktop-safe}
+    width: setGrid(4)
+
+.grid-5
+  @media #{$break-desktop-safe}
+    width: setGrid(5)
+
+.grid-6
+  @media #{$break-desktop-safe}
+    width: setGrid(6)
+
+.grid-7
+  @media #{$break-desktop-safe}
+    width: setGrid(7)
+
+.grid-8
+  @media #{$break-desktop-safe}
+    width: setGrid(8)
+
+.grid-9
+  @media #{$break-desktop-safe}
+    width: setGrid(9)
+
+
+// Sixth
+
+.grid-sixth
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 5)) / 6) * 1  + ($gut * 0))
+
+
+// Fifths
+
+.grid-fifth
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 4)) / 5) * 1 + ($gut * 0))
+
+.grid-two-fifths
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 4)) / 5) * 2 + ($gut * 1))
+
+.grid-three-fifths
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 4)) / 5) * 3 + ($gut * 2))
+
+.grid-four-fifths
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 4)) / 5) * 4 + ($gut * 3))
+
+
+// Fourths
+
+.grid-fourth-flush
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 3)) / 4) * 1 + ($gut * 0))
+    margin-left: percentage($gut / 2)
+    margin-right: percentage($gut / 2)
+
+.grid-fourth
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 3)) / 4) * 1 + ($gut * 0))
+
+.grid-half
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 3)) / 4) * 2 + ($gut * 1))
+
+.grid-three-fourths
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 3)) / 4) * 3 + ($gut * 2))
+
+
+// Thirds
+
+.grid-third
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 2)) / 3) * 1 + ($gut * 0))
+
+.grid-two-thirds
+  @media #{$break-desktop-safe}
+    width: percentage( ((1 - ($gut * 2)) / 3) * 2 + ($gut * 1))
+
+
+// Force left/right
+
+.grid-set-left
+  @media #{$break-desktop-safe}
+    float: left
+    &:nth-child(2)
+      float: left
+
+.grid-set-right
+  @media #{$break-desktop-safe}
+    float: right
+
+
+// Last column 
+
+.grid-last
+  margin-right: 0
+
+
+
+//  
+//  Typesetting
+//  —·—·—·—·—·—·—·—·—·—·—·—
+
+@font-face
+  font-family: "Vito-Light"
+  src: url("/webfonts/Vito-Light.eot")
+  src: url("/webfonts/Vito-Light.eot?#iefix") format("embedded-opentype"), url("/webfonts/Vito-Light.woff2") format("woff2"), url("/webfonts/Vito-Light.woff") format("woff")
+
+@font-face
+  font-family: "Vito-Bold"
+  src: url("/webfonts/Vito-Bold.eot")
+  src: url("/webfonts/Vito-Bold.eot?#iefix") format("embedded-opentype"), url("/webfonts/Vito-Bold.woff2") format("woff2"), url("/webfonts/Vito-Bold.woff") format("woff")
+
+@mixin setFont($face: "regular", $size: 0, $line-height: 0)
+  $family: "Vito-Light", "Helvetica Neue", Arial, sans-serif
+  $style: normal
+  $weight: normal
+
+  @if $face == "bold"
+    $family: "Vito-Bold", "Helvetica Neue", Arial, sans-serif
+    $style: normal
+    $weight: normal
+
+  @else if $face == "serif"
+    $family: "elena-web-basic", Georgia, serif
+    $style: normal
+    $weight: 400
+
+  @else if $face == "serif-italic"
+    $family: "elena-web-basic", Georgia, serif
+    $style: italic
+    $weight: 400
+
+  @else if $face == "serif-bold"
+    $family: "elena-web-basic", Georgia, serif
+    $style: normal
+    $weight: 700
+
+  @else
+    $family: "Vito-Light", "Helvetica Neue", Arial, sans-serif
+    $style: normal
+    $weight: normal
+
+  font:
+    family: $family
+    @if $size != 0
+      size: prem($size)
+    style: $style
+    weight: $weight
+  @if $line-height != 0
+    line-height: pem($line-height, $size)
+
