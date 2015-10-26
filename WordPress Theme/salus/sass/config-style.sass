@@ -34,7 +34,7 @@ $instagram: #517f85
                                                          // 1 pixel TO —> 
 $break-mobile-landscape: "screen and (min-width: 480px)" // Mobile devices TO —>
 $break-tablet-portrait: "screen and (min-width: 768px)"  // Tablets & old desktops TO —>
-$break-desktop-safe: "screen and (min-width: 960px)"    // Small desktops and landscape tablets TO —>
+$break-desktop-safe: "screen and (min-width: 1024px)"    // Small desktops and landscape tablets TO —>
 $break-desktop: "screen and (min-width: 1280px)"         // Regular desktops on the smaller side TO —>
 $break-desktop-1: "screen and (min-width: 1600px)"       // Modern desktops TO —>
 $break-desktop-2: "screen and (min-width: 1920px)"       // Wide screen desktops TO —>
@@ -149,8 +149,8 @@ $em_base: 16
 .grid-fourth-flush
   @media #{$break-desktop-safe}
     width: percentage( ((1 - ($gut * 3)) / 4) * 1 + ($gut * 0))
-    margin-left: percentage($gut / 2)
     margin-right: percentage($gut / 2)
+    margin-left: percentage($gut / 2) 
 
 .grid-fourth
   @media #{$break-desktop-safe}

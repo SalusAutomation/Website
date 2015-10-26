@@ -203,6 +203,9 @@ a
   @include setUppercase()
   color: $purple
 
+.quick-connect-contact-link
+  @include setLinkColor($purple, $purple)
+
 .quick-connect-social-list
   @media #{$break-desktop-safe}
     position: absolute
@@ -256,7 +259,7 @@ a
   background-color: $white
   
 .section-about-frame
-  @media #{$break-desktop-safe}
+  @media #{$break-desktop}
     background: url("../images/illustration-chemistry.png") right 0 top 90px no-repeat $white
     background-size: 261px 187px
   @media #{$break-desktop-2}
@@ -267,6 +270,8 @@ a
 
 .section-consulting
   background-color: $white
+  @media #{$break-desktop-1}
+    min-height: 400px
 
 .section-products
   background-color: $black
@@ -340,17 +345,43 @@ a
   @media #{$break-desktop-3}
     padding: 0 0 0 219px
 
+.back-to-top
+  margin-top: 30px
+
+.back-to-top-link
+  @include setFont("serif-italic", 18, 24)
+  @include setLinkColor($light-gray, $teal-bright)
+
+.section-applications
+  .back-to-top-link
+    @include setLinkColor($white, $white)
+    border-bottom-color: transparentize($white, 0.5)
+    opacity: 0.5
+    &:hover, &:focus
+      border-bottom-color: transparentize($white, 0.5)
+      opacity: 1.0
+
+.section-products
+  .back-to-top-link
+    border-bottom-color: $light-gray
+    opacity: 0.5
+    &:hover, &:focus
+      border-bottom-color: $light-gray
+      opacity: 1.0
+    
 .section-image
   display: block
   width: 100%
-  max-width: 400px
+  max-width: 800px
   margin: 30px 0 0 0
-  @media #{$break-desktop-safe}
+  @media #{$break-desktop-1}
+    max-width: 600px
+    margin-top: 0
     position: absolute
     right: 0
     top: 0
   @media #{$break-desktop-2}
-    max-width: 600px
+    max-width: 800px
 
 .section-image-img
   display: block
@@ -381,7 +412,7 @@ a
   ul
     list-style: none
   li
-    display: inline-block
+    display: block
     margin-bottom: 2px
     padding: 13px 25px 13px 50px
     @include setFont("regular", 25, 25)
@@ -391,12 +422,21 @@ a
     strong
       @include setFont("bold")
   @media #{$break-desktop-safe}
+    li
+      display: inline-block
+      float: left
+      clear: left
+  @media #{$break-desktop-1}
     width: 446px
     margin-top: 0
     padding-top: 142px
     position: absolute
     right: 0
     top: 40px
+    li
+      display: inline-block
+      float: none
+      clear: none
   @media #{$break-desktop-2}
     right: 254px
 
@@ -408,7 +448,7 @@ a
   ul
     list-style: none
   li
-    display: inline-block
+    display: block
     padding: 13px 25px 13px 30px
     @include setFont("regular", 21, 21)
     color: $black
@@ -426,8 +466,8 @@ a
       padding-top: 0
     strong
       @include setFont("bold")
-  @media #{$break-desktop-safe}
-    width: 446px
+  @media #{$break-desktop}
+    width: 346px
     margin-top: 0
     position: absolute
     right: 0
@@ -444,6 +484,8 @@ a
       &:nth-child(3)
         background-position: 0 11px
         background-size: 26px 26px
+  @media #{$break-desktop-1}
+    width: 446px
   @media #{$break-desktop-2}
     right: 254px
 
@@ -490,6 +532,7 @@ a
 .button
   @include setBorderSizing()
   display: inline-block
+  width: 220px
   height: 74px
   padding: 15px 30px
   @include setFont("bold", 28, 28)
@@ -508,8 +551,22 @@ a
     @include setFont("regular", 11, 16)
     @include setUppercase()
 
+// Has .grid-fourth-flush
 .app-block
+  margin-top: 50px
+  margin-right: auto
+  margin-left: auto
   text-align: center
+  @media #{$break-tablet-portrait}
+    width: 50%
+  @media #{$break-desktop-safe}
+    width: 45%
+    margin-right: percentage($gut / 2)
+    margin-left: percentage($gut / 2) 
+  @media #{$break-desktop}
+    // Reset
+    width: percentage( ((1 - ($gut * 3)) / 4) * 1 + ($gut * 0))
+    margin-top: 0
 
 .app-block-title-link
   @include setLinkColor($white, $white)

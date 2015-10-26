@@ -29,7 +29,7 @@
 <body <?php body_class(); ?>>
 
 <div class="site">
-	<header class="site-header clear">
+	<header id="site-header" class="site-header clear">
     <div class="frame clear">	
 			<div class="grid-branding grid">
 				<p class="branding"><a class="logo-link" href="/"><strong class="logo"><span class="hide">Salus Medical Automation</span></strong></a></p>
@@ -48,7 +48,7 @@
 			<div class="quick-connect-container grid grid-set-right grid-last clear">
 				<div class="quick-connect clear">
 					<p class="quick-connect-contact grid-half grid">
-						<strong class="quick-connect-contact-label">Contact Salus</strong>
+						<strong class="quick-connect-contact-label"><a class="quick-connect-contact-link" href="#section-contact">Contact Salus</a></strong>
 						<span class="scope-text">hello@salusgroup.com</span>
 						<span class="scope-text">(888) 555-1234</span>
 					</p>

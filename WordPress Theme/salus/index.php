@@ -79,6 +79,7 @@ get_header(); ?>
 
     <div class="section-about-content section-page-content">
       <?php the_content(); ?>
+      <?php get_template_part("inc/block", "back-to-top"); ?>
     </div>
   </div>
 </div>
@@ -105,6 +106,7 @@ get_header(); ?>
 
       <div class="section-applications-content section-page-content">
         <?php the_content(); ?>
+        <?php get_template_part("inc/block", "back-to-top"); ?>
       </div>
     <?php
       endwhile;
@@ -152,6 +154,7 @@ get_header(); ?>
 
     <div class="section-consulting-content section-page-content">
       <?php the_content(); ?>
+      <?php get_template_part("inc/block", "back-to-top"); ?>
 
       <div class="section-image">
         <p class="section-image"><img class="section-image-img" src="<?php echo $sectionImage; ?>" alt="Abstract building" /></p>
@@ -181,6 +184,7 @@ get_header(); ?>
 
     <div class="section-products-content section-page-content clear">
       <?php the_content(); ?>
+      <?php get_template_part("inc/block", "back-to-top"); ?>
     </div> <!-- /.section-products-content -->
 
   <?php
@@ -255,6 +259,7 @@ get_header(); ?>
 
       <div class="section-contact-content section-page-content">
         <?php the_content(); ?>
+        <?php get_template_part("inc/block", "back-to-top"); ?>
       </div>
     <?php
       endwhile;
